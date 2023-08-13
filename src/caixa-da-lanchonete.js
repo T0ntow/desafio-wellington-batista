@@ -56,11 +56,9 @@ class CaixaDaLanchonete {
     verificarItensExtras(itensPrincipais, itensExtras) {
         for (const extra of itensExtras) {
             if (extra.codigo.includes('chantily') && !itensPrincipais.some(principal => principal.codigo.includes('cafe'))) {
-                console.log("Item extra (chantily) não pode ser pedido sem o principal (café).");
-                return "erro cafe"
+                return "Item extra (chantily) não pode ser pedido sem o principal (café)."
             } else if (extra.codigo.includes('queijo') && !itensPrincipais.some(principal => principal.codigo.includes('sanduiche'))) {
-                console.log("Item extra (queijo) não pode ser pedido sem o principal (sanduíche).");
-                return "erro sanduiche"
+                return "Item extra (queijo) não pode ser pedido sem o principal (sanduíche)."
             }
         }
         return null;
@@ -113,5 +111,5 @@ class FormasDePagamento {
 }
 
 const caixaLanchonete = new CaixaDaLanchonete();
-const valorTotal = caixaLanchonete.calcularValorDaCompra('credito', ['combo1, 1', 'combo2']);
+const valorTotal = caixaLanchonete.calcularValorDaCompra('credito', ['chantily,1']);
 console.log(valorTotal);
